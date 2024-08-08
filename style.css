@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 10px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e, #3a86ff);
+}
+
+.container {
+  width: 850px;
+  padding: 30px 35px 35px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.container.disable .editor-panel,
+.container.disable .controls .reset-filter,
+.container.disable .controls .save-img {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container h2 {
+  margin-top: -8px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+}
+
+.container .wrapper {
+  display: flex;
+  margin: 20px 0;
+  min-height: 335px;
+}
+
+.wrapper .editor-panel {
+  padding: 15px 20px;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.editor-panel:hover {
+  background-color: #f7f7f7;
+}
+
+.editor-panel .title {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.editor-panel .options, .controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.editor-panel button {
+  outline: none;
+  height: 40px;
+  font-size: 14px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3a86ff, #8338ec);
+  border-radius: 3px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.editor-panel button:hover {
+  background: linear-gradient(135deg, #265bb3, #5a30b4);
+  transform: scale(1.05);
+}
+
+.editor-panel .filter button {
+  width: calc(100% / 2 - 4px);
+}
+
+.filter button.active {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, #3a86ff, #8338ec);
+}
+
+.filter .slider {
+  margin-top: 12px;
+}
+
+.filter .slider .filter-info {
+  display: flex;
+  color: #464646;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.filter .slider input {
+  width: 100%;
+  height: 5px;
+  accent-color: #3a86ff;
+}
+
+.editor-panel .rotate {
+  margin-top: 17px;
+}
+
+.editor-panel .rotate button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 4 - 3px);
+}
+
+.rotate .options button:nth-child(3),
+.rotate .options button:nth-child(4) {
+  font-size: 18px;
+}
+
+.rotate .options button:active {
+  color: #fff;
+  background: linear-gradient(135deg, #3a86ff, #8338ec);
+  border-color: transparent;
+}
+
+.wrapper .preview-img {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+  margin-left: 20px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.preview-img img {
+  max-width: 490px;
+  max-height: 335px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview-img:hover {
+  transform: scale(1.02);
+}
+
+.controls button {
+  padding: 11px 20px;
+  font-size: 14px;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.controls .reset-filter {
+  color: #3a86ff;
+  border: 1px solid #3a86ff;
+  background: transparent;
+}
+
+.controls .reset-filter:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #3a86ff, #8338ec);
+  border-color: transparent;
+}
+
+.controls .choose-img {
+  background: linear-gradient(135deg, #ffbe0b, #ff8c00);
+  border: 1px solid transparent;
+}
+
+.controls .choose-img:hover {
+  background: linear-gradient(135deg, #ffb703, #e67300);
+}
+
+.controls .save-img {
+  margin-left: 5px;
+  background: linear-gradient(135deg, #3a86ff, #8338ec);
+  border: 1px solid transparent;
+}
+
+.controls .save-img:hover {
+  background: linear-gradient(135deg, #265bb3, #5a30b4);
+}
+
+@media screen and (max-width: 760px) {
+  .container {
+    padding: 25px;
+  }
+
+  .container .wrapper {
+    flex-wrap: wrap-reverse;
+  }
+
+  .wrapper .editor-panel {
+    width: 100%;
+  }
+
+  .wrapper .preview-img {
+    width: 100%;
+    margin: 0 0 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .controls button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .controls .row {
+    width: 100%;
+  }
+
+  .controls .row .save-img {
+    margin-left: 0px;
+  }
+}
